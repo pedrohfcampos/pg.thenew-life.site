@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Suplement Tech Boost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Boost your wellness with our high-tech Suplement combo!" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #0A0A0A; /* Deep black for a sleek, modern background */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            background-image: linear-gradient(to bottom, #121212, #1A237E); /* Gradient from dark grey to deep blue */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .confirmation-box {
+            padding: 20px;
+            background-color: #212121; /* Dark grey for futuristic vibes */
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .confirmation-text {
+            font-size: 24px;
+            color: #29B6F6; /* Bright neon blue for text, vibrant and eye-catching */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #0D47A1; /* Rich blue for the button, strong and engaging */
+            border: none;
+            padding: 15px 45px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1565C0; /* A slightly lighter blue for hover */
+        }
+
+        #timer {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #B3E5FC; /* Light blue for a subtle emphasis, maintaining the tech theme */
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #0D47A1; /* Consistent with button color for a unified design */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            margin-top: 10px;
+            line-height: 1.5;
+            color: #ccc; /* Light grey for less obtrusive disclaimer text */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="confirmation-box">
+            <p class="confirmation-text">Confirm Your Age: Click Watch Now</p>
+            <a href="https://pg.thenew-life.site/v1">
+            <button class="btn" id="proceedButton">WATCH NOW</button>
+            </a>
+            <br><br>
+            <span id="timer">Access in 15 seconds</span>
+        </div>
+  
+    </main>
+    <script>
+        // Timer Countdown
+        let timeLeft = 15;
+        const timerElement = document.getElementById("timer");
+  
+        function updateTimer() {
+          if (timeLeft > 0) {
+            timeLeft--;
+            timerElement.textContent = `Access in ${timeLeft} seconds`;
+          } else {
+            clearInterval(timerInterval);
+            timerElement.textContent = "Access expiring...";
+          }
+        }
+  
+        let timerInterval = setInterval(updateTimer, 1000);
+      </script>
+  
+    <script>
+          // Attach URL parameters to the redirect link
+          document.addEventListener('DOMContentLoaded', function() {
+              var proceedButton = document.querySelector('a');
+              var currentUrlParams = new URLSearchParams(window.location.search);
+  
+              var newHref = proceedButton.href;
+              if (!newHref.includes('?')) {
+                  newHref += '?';
+              } else {
+                  newHref += '&';
+              }
+  
+              currentUrlParams.forEach(function(value, key) {
+                  newHref += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`;
+              });
+              newHref = newHref.slice(0, -1); // Remove the last '&'
+              proceedButton.href = newHref;
+          });
+      </script>
+    <footer>
+        <div>Copyright 2024 - The Man Health ©</div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="disclaimer">
+            This site is not part of Tik Tok, Inc. or TikTok.com, nor is it sponsored or endorsed by Tik Tok. Tik Tok is a trademark of ByteDance, Ltd.
+            <br><br>
+            Disclaimer: This site is provided for educational purposes only.
+            Please consult a health professional before implementing any strategy discussed on this website.
+            DISCLAIMER: The website’s content is based upon the author’s opinion and is provided on an “AS IS” and “AS AVAILABLE” basis.
+            You should do your own research and confirm the information with other sources when searching for information regarding health issues and always review the information carefully with your professional health care provider before using any of the protocols presented on this website and/or in the product sold here.
+            <br><br>
+            The author is not engaged in rendering medical or similar professional services or advice via this website, and the information provided is not intended to replace medical advice offered by a physician or other licensed health care provider.
+        </div> 
+        </div>
+    </footer>
+</body>
+</html>
